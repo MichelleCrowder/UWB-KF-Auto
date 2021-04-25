@@ -28,3 +28,9 @@ The model will output the followin:
 - Figure 2 - This figure will show the squared error of the angle (in degrees) of each time step, averaged over all iterations ran.
 - avgLSerr - This value is the average Least Squares Algorithm RMSE over all the iterations ran.
 - avgKerr - This value is the average Kalman Filter RMSE over all the iterations ran.
+
+
+## References
+
+The model above was based off of example 4.3 in the following:
+- Z. Sahinoglu, S. Gezici, and I. Güvenc, “Position estimation techniques,” in Ultra-wideband Positioning Systems: Theoretical Limits, Ranging Algorithms, and Protocols, Cambridge: Cambridge University Press, 2008, pp. 1-19, 63-100.
