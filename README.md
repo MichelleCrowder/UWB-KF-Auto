@@ -1,4 +1,4 @@
-# UWB-KF-Auto
+# UWB Localization using Kalman Filters for Automotive
 Modeling localization using UWB technology with a Kalman Filter for vehicle applications
 
 ## Introduction
