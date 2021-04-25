@@ -6,7 +6,7 @@
 clear all
 close all
 
-eta = 1.75;
+
 m = 6; %change this to the number of anchors you'd like
 %m can also be a vector to run multiple trials in succession.
 %sweep will track the LS and Kalman RMSE over the different configuration
@@ -26,7 +26,7 @@ v = 1; %velocity
 %Each measurement is modeled by a gaussian random variable around the true
 %range with a variance of 0.5 m^2
 k = 0:dt:33; %k is the vector of time steps
-r = 4.5;  %radius of the path from the center of the vehicle (This can be changed if desired)
+r = 4.5;  %radius of the path from the center of the vehicle in meters (This can be changed if desired)
 c = [8.3, 6.95]; %center of the vehicle
 path(:,1) = r * cos(k/r) + c(1); %x value of path
 path(:,2) = r * sin(k/r) + c(2); %y value of path
@@ -46,6 +46,7 @@ Gk = [1, 0, 0, 0; 0, 1, 0, 0];
 B = [0;0;0;0];
 D = [0;0];
 
+eta = 1.75;
 R = [eta, 0; 0, eta]; %The covariance of the measurement noise
 Q = [0, 0, 0,0; 0,0,0,0; 0,0,dt^2, 0; 0,0,0,dt^2]; %Covariance of the state
 
@@ -144,8 +145,8 @@ for n = 1:iter
 end %This is the end of the iterations
 
 %Mean least square error
-avgLSerr = SumLSError/iter
-avgKerr = SumKError/iter
+avgLSerr = SumLSError/iter %for the LS algorithm
+avgKerr = SumKError/iter %for the Kalman filter
 Kerr_ang = sum(K_Error,2)./iter; %Average of the error at each angle.
 ang = k/r*180/pi;
 
